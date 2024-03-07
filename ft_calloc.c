@@ -6,7 +6,7 @@
 /*   By: jheo <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 21:39:36 by jheo              #+#    #+#             */
-/*   Updated: 2024/03/01 20:10:03 by jheo             ###   ########.fr       */
+/*   Updated: 2024/03/06 16:18:55 by jheo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	size_t			i;
 
 	i = 0;
-	if (size == 0)
-		return (0);
 	arr = (unsigned char *)malloc(size * nmemb);
 	if (arr == 0)
 		return (0);
