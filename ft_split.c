@@ -6,7 +6,7 @@
 /*   By: jheo <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 15:31:19 by jheo              #+#    #+#             */
-/*   Updated: 2024/03/06 20:05:42 by jheo             ###   ########.fr       */
+/*   Updated: 2024/03/08 16:09:21 by jheo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	cnt = word_count(s, c);
 	arr = (char **)malloc(sizeof(char *) * (cnt + 1));
-	if (arr == 0)
+	if (!arr)
 		return (0);
 	while (i < cnt)
 	{

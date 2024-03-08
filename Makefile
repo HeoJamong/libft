@@ -33,9 +33,9 @@ SRCS = 	ft_isalpha.c \
 		ft_putchar_fd.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
-		ft_putnbr_fd.c
+		ft_putnbr_fd.c \
 
-BONUS = ft_lstnew.c \
+SRCB =	ft_lstnew.c \
 		ft_lstadd_front.c \
 		ft_lstsize.c \
 		ft_lstlast.c \
@@ -51,25 +51,21 @@ CC = clang
 CFLAGS = -Wall -Wextra -Werror
 
 OBJS = $(SRCS:.c=.o)
-OBJB = $(BONUS:.c=.o)
+OBJB = $(SRCB:.c=.o)
 
 all: $(NAME)
 
 ifdef IS_BONUS
-	OBJ = $(OBJS) $(OBJB)
+OBJ = $(OBJS) $(OBJB)
 else
-	OBJ = $(OBJS)
+OBJ = $(OBJS)
 endif
-
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
-	$(CC) -nostartfiles -shared -o libft.so $(OBJS)
 
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJS)
 
 bonus:
-	@make IS_BONUS = 1 all
+	@make IS_BONUS=1 all
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -82,4 +78,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
